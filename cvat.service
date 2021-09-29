@@ -10,7 +10,8 @@ RemainAfterExit=true
 WorkingDirectory=$HOME/cvat
 ExecStart=/usr/local/bin/docker-compose up -d
 ExecStop=/usr/local/bin/docker-compose down
-Environment="CVAT_HOST=0.0.0.0"
+Environment="CVAT_HOST_PRIVATE=0.0.0.0"
+Environment="CVAT_HOST_PUBLIC=0.0.0.0"
 
 [Install]
 WantedBy=multi-user.target

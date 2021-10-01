@@ -831,7 +831,7 @@
                 let response = null;
                 try {
                     response = await workerAxios.get(
-                        `${backendAPI}/tasks/${tid}/data?type=chunk&number=${chunk}&quality=compressed`,
+                        `${backendAPI}/tasks/${tid}/data?type=chunk&number=${chunk}&quality=original`,
                         {
                             proxy: config.proxy,
                             responseType: 'arraybuffer',

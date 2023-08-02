@@ -64,7 +64,7 @@ class CLI():
                 if use_json_output:
                     json_data_list.append(r)
                 else:
-                    log.info('{id},{name},{status}'.format(**r))
+                    log.info('{id},{name},{status},{project_id}'.format(**r))
             if not response_json['next']:
                 log.info(json.dumps(json_data_list, indent=4))
                 return output
@@ -80,6 +80,7 @@ class CLI():
                      git_completion_verification_period=2,
                      dataset_repository_url='',
                      project_id=None,
+                     assignee_id=None,
                      lfs=False, **kwargs):
         """ Create a new task with the given name and labels JSON and
         add the files to it. """
@@ -93,6 +94,8 @@ class CLI():
         }
         if project_id:
             data.update({'project_id': project_id})
+        if assignee_id:
+            data.update({'assignee_id': assignee_id})
         response = self.session.post(url, json=data)
         response.raise_for_status()
         response_json = response.json()

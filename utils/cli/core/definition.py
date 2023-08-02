@@ -119,6 +119,12 @@ task_create_parser.add_argument(
     help='project ID if project exists'
 )
 task_create_parser.add_argument(
+    '--assignee_id',
+    default=None,
+    type=int,
+    help="assignee ID if you want to assign annotator"
+)
+task_create_parser.add_argument(
     '--overlap',
     default=0,
     type=int,
